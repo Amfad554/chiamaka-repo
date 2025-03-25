@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body style=" background-color: rgb(243, 241, 234); text-align: center;"> 
+  <div class="dropdown" style="float: left;">
+    <p class="menu-button" style="font-size: x-large;">☰</p>
+  <div class="dropdown-content">
+    <a href="home.html" target="_blank">Home</a>
+    <a href="about.html" target="_blank">About</a>
+    <a href="blog.html" target="_blank">Blog</a>
+    <a href="contact.html" target="_blank">Contact</a>
+    <a href="sign in.html" target="_blank">Register with us</a>
+  </div>
+</div>
+
+  <!-- <nav> -->
+  <!-- <ul> -->
+    <!-- <a href="home.html">Home</a> -->
+    <!-- <a href="about.html" target="_blank">About</a> -->
+    <!-- <a href="blog.html" target="_blank">blog</a> -->
+    <!-- <a href="contact.html" target="_blank">Contact</a> -->
+    <!-- <a href="sign in.html" target="_blank">Sign In</a> -->
+  <!-- </ul> -->
+<!-- </nav> -->
+
+  <h1>Register with us</h1>
+   <p> Privacy Notice: We respect your privacy and confidentiality. Any information you provide will be used solely for the purpose of addressing your inquiries and scheduling appointments.</p>       
+  <form method="post" action="sign in.html">
+    <fieldset>
+      <legend>Beneficiary Details</legend>
+      <label for="Name">Name:</label>
+      <input type="text"id="name"required><br><br>
+
+      <label for="phone">Phone no.</label>
+      <input type="text"id="phone"><br><br>
+
+      <label for="address">Address:</label>
+      <input type="text"id="address"><br><br>
+
+      <Label for="email">Email:</Label>
+      <input type="text"id="email" required><br><br>
+
+      <label for="password">Password:</label>
+      <input type="password"id="password"required><br><br>
+
+      <label for="confirm password">confirm password:</label>
+      <input type="password"id="confirm password"><br><br>
+
+      <a href="reset.html">Reset password</a>
+    </fieldset>
+    <fieldset>
+      <legend>Order Details</legend>
+      <label for="Username">Username</label>
+      <input type="text"id="Username"required><br><br>
+      <label for="Age">Age:</label>
+      <input type="text"id="age"required><br><br>
+      <label for="Gender">Gender:</label>
+      <input type="text"id="Gender"><br>
+      <h2>Comment</h2>
+      <textarea cols="20" rows="5" id="remark"></textarea><br>
+      <button onclick="alert('Thanks contact you soon!')">submit</button>
+    </fieldset>
+
+  </form>
+<footer>
+  <h3><marquee>&copy;2025 Journey to wellness</h3></marquee>
+</footer>
+</body>
+</html>
