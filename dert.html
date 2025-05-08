@@ -2,82 +2,171 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Service</title>
-     <link rel="stylesheet" href="home.css">
-         <style>
-             body {
-                 font-family: Arial, sans-serif;
-                 background-color: white;
-             }
-             .container {
-                 width: 50%;
-                 margin: 50px auto ;
-                 padding: 20px;
-                 background-color: white;
-             }
-             h1 {
-                 text-align: center;
-                 color:black;
-             }
-             input, select, textarea {
-                 width: 100%;
-                 padding: 10px;
-                 margin-bottom: 15px;
-                 border: 1px solid #ddd;
-                 border-radius: 4px;
-                 font-size: 14px;/
-             }
-             button {
-                 background-color: #4CAF50;
-                 color: white;
-                 border: none;
-                 padding: 10px 20px;
-                 font-size: 16px;
-                 cursor: pointer;
-                 width: 100%;
-             }
-             /* button:hover { */
-                 /* background-color: #45a049; */
-             /* background-color: rgb(243, 241, 234); */
-         </style>
-     </head>
-     <body style="background-color:rgb(243, 241, 234) ;">
-     
-     <div class="container">
-         <h1>Book Your Consultation</h1>
-             <label for="name">Full Name</label>
-             <input type="text" id="name" name="name" required placeholder="Your full name">
-     
-             <label for="email">Email Address</label>
-             <input type="email" id="email" name="email" required placeholder="Your email address">
-     
-             <label for="phone">Phone Number</label>
-             <input type="tel" id="phone" name="phone" required placeholder="Your phone number">
-     
-             <label for="date">Preferred Consultation Date</label>
-             <input type="date" id="date" name="date"  required>
+    <title>Consultation Booking</title>
+    <link rel="stylesheet" href="home.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(243, 241, 234);
+        }
 
-             <label for="time">Preferred Time</label>
-             <input type="time" id="time" name="time" required>
+        .container {
+            width: 50%;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
 
-             <label for="type">Type of Counseling</label>
-             <input id="type" name="type" required>
+        h1 {
+            text-align: center;
+            color: black;
+        }
 
-             <label for="message">Additional Information (Optional)</label>
-             <textarea id="message" name="message" rows="4" placeholder="Any additional details or questions"></textarea>
-             <button onclick="alert('Contact you soon!')">Book Consultation</button>
-         </form>
-     </div>
-     
-     </body>
-     </html>
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <body style="background-color:  rgb(243, 241, 234);;">
+        <img src="well2.jpg" alt="well.jpg" width="120" height="120">
+      <div class="dropdown">
+        <p class="menu-button" style="font-size: x-large;">☰</p>
+        <div class="dropdown-content">
+          <a href="home.html" target="_blank">Home</a>
+          <a href="about.html" target="_blank">About</a>
+          <a href="blog.html" target="_blank">Blog</a>
+          <a href="contact.html" target="_blank">Contact</a>
+        </div>
+      </div>
+    <div class="container">
+        <h1>Book Your Consultation</h1>
+        <form id="consultation-form">
+
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Your full name" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="Your email address" required>
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="Your phone number" required>
+
+            <label for="date">Preferred Consultation Date</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="time">Preferred Time</label>
+            <input type="time" id="time" name="time" required>
+
+            <label for="type">Type of Counseling</label>
+            <select name="type" required>
+                <option value="">-- Select One --</option>
+                <option value="individual">Individual Counseling</option>
+                <option value="couples">Couples Counseling</option>
+                <option value="group">Group Counseling</option>
+                <option value="family">Family Counseling</option>
+                <option value="online">Online Counseling</option>
+                <option value="workshops">Workshops</option>
+                <option value="support">Support Groups</option>
+                <option value="specialized">Specialized Programs</option>
+            </select>
+
+            <label for="payment-method">Choose a payment method:</label>
+            <select id="payment-method" name="payment-method" onchange="toggleReceiptField()" required>
+                <option value="">-- Select Payment Method --</option>
+                <option value="credit-card">Credit/Debit Card</option>
+                <option value="paypal">PayPal</option>
+                <option value="bank-transfer">Bank Transfer</option>
+                <option value="cash">Cash (in-person sessions)</option>
+            </select>
+
+            <div id="receipt-field" style="display: none;">
+                <label for="fileUpload">Upload Your Receipt:</label>
+                <input type="file" id="fileUpload" name="fileUpload" accept="image/*, .pdf, .docx, .txt">
+            </div>
+
+            <label for="message">Additional Information (Optional)</label>
+            <textarea id="message" name="message" rows="4" placeholder="Any additional details or questions"></textarea>
+
+            <button type="submit">Book Consultation</button>
+        </form>
+    </div>
+
+    <script>
+        function toggleReceiptField() {
+            const paymentMethod = document.getElementById("payment-method").value;
+            const receiptField = document.getElementById("receipt-field");
+            receiptField.style.display = (paymentMethod === "bank-transfer") ? "block" : "none";
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.getElementById("consultation-form");
+
+            form.addEventListener("submit", function (e) {
+                e.preventDefault();
+
+                // Get values
+                const name = document.getElementById("name").value.trim();
+                const email = document.getElementById("email").value.trim();
+                const phone = document.getElementById("phone").value.trim();
+                const paymentMethod = document.getElementById("payment-method").value;
+                const fileUpload = document.getElementById("fileUpload");
+
+                // Validate required fields
+                if (!name || !email || !phone || !paymentMethod) {
+                    alert("Please fill in all required fields.");
+                    return;
+                }
+
+                // Validate email format
+                const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+                if (!email.match(emailPattern)) {
+                    alert("Please enter a valid email address.");
+                    return;
+                }
+
+                // Validate phone number (basic)
+                const phonePattern = /^\d{10,15}$/;
+                if (!phone.match(phonePattern)) {
+                    alert("Please enter a valid phone number (10-15 digits).");
+                    return;
+                }
+
+                // If payment is bank-transfer, require file upload
+                if (paymentMethod === "bank-transfer" && fileUpload.files.length === 0) {
+                    alert("Please upload your bank transfer receipt.");
+                    return;
+                }
+
+                // If all is good
+                alert("Thanks! We will contact you soon.");
+                window.location.href = "https://wa.me/+2347078431645";
+            });
+        });
+    </script>
+</body>
+</html>
+
      <footer>
         <h3><marquee>&copy;2025 Journey to wellness</h3></marquee>
      </footer>
-
-
-</head>
-<body >
 </body>
 </html>
+     
